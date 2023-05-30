@@ -1,0 +1,23 @@
+-- INSERT INTO dojos (name)
+-- VALUES ("Manhattan"),("Brooklyn"),("Queens");
+
+-- SET SQL_SAFE_UPDATES = 0;
+-- DELETE FROM dojos;
+
+-- SELECT * FROM dojos;
+
+-- INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+-- VALUES ("Willie", "Mays", 92, 4),("Christy", "Mathewson", 45, 4),("Mel", "Ott", 49, 4),
+-- 			("Jackie","Robinson", 45, 5), ("Sandy","Koufax", 87, 5), ("Don","Drysdale", 56, 5),
+--  		  ("Tom", "Seaver", 75, 6),("Darryl", "Strawberry", 61, 6),("Mike", "Piazza", 54, 6);
+       
+-- SELECT * FROM dojos
+-- LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+  -- WHERE dojos.id = 4;
+
+-- SELECT * FROM dojos
+-- LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+	-- WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);
+    
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);
